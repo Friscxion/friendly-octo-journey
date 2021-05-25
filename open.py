@@ -19,5 +19,5 @@ while True:
     if button.is_pressed:
         print("Pressed")
         right.stop()
-        break;
-
+        break
+    sleep(1)
