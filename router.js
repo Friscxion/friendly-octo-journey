@@ -50,7 +50,11 @@ router.get('/params', (req, res) => {
 })
 
 router.post('/params', (req, res) => {
-    fs.writeFile('params.json',req.body).then(res=>console.log(res))
+    fs.writeFile('params.json',req.body).then(resp=> {
+        console.log(resp);
+        res.sendStatus(200);
+    })
+
 })
 
 
