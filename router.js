@@ -52,9 +52,8 @@ router.get('/params', (req, res) => {
 router.post('/paramse', (req, res) => {
     fs.writeFile('params.json',req.body).then(resp=> {
         console.log(resp);
-        res.sendStatus(200);
     })
-
+    res.sendStatus(200);
 })
 
 
