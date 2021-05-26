@@ -4,8 +4,8 @@ module.exports = {
         require('dotenv').config();
         let sunrise = getSunrise(process.env.LATITUDE,process.env.LONGITUDE);
         let sunset= getSunset(process.env.LATITUDE,process.env.LONGITUDE);
-        sunset.setTime(sunset.getTime() - sunset.getTimezoneOffset()*60*1000);
-        sunrise.setTime(sunrise.getTime() - sunrise.getTimezoneOffset()*60*1000);
+        sunset.setTime(sunset.getTime() - sunset.getTimezoneOffset()*120*1000);
+        sunrise.setTime(sunrise.getTime() - sunrise.getTimezoneOffset()*120*1000);
         console.log(sunset,sunrise);
         return {sunset,sunrise};
     }
