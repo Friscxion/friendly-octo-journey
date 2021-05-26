@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require('fs').promises;
 const router = express.Router();
 
 let _LOCK_ = false;
@@ -44,6 +45,13 @@ router.get('/sunrise_sunset', (req, res) => {
     res.send(today)
 })
 
+router.get('/params', (req, res) => {
+    fs.readFile('main/params.json').then(resp=>res.send(resp.toString()))
+})
+
+router.post('/params', (req, res) => {
+    fs.writeFile('main/params.json',req.body).then(res=>console.log(res))
+})
 
 
 module.exports=router;

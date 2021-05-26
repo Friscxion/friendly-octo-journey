@@ -11,6 +11,7 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "node-fs": "^0.1.7",
     "sunrise-sunset-js": "^2.2.1"
   }
 }
