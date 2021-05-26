@@ -39,6 +39,7 @@ class managerCron{
 
         this.sunsetJob.stop();
         this.sunsetJob.setTime(new CronTime(`${this.sunset[0]} ${this.sunset[1]} ${this.sunset[2]} * * *`,'Europe/Paris'));
+        this.sunsetJob.start();
     }
 
     autoSet(){
