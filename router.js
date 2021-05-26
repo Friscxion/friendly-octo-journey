@@ -46,7 +46,7 @@ router.get('/sunrise_sunset', (req, res) => {
 })
 
 router.get('/params', (req, res) => {
-    fs.readFile('params.json').then(resp=>res.send(resp.toString()))
+    fs.readFile('params.json').then(resp=>res.send(JSON.parse(resp.toString())))
 })
 
 router.post('/params', (req, res) => {
