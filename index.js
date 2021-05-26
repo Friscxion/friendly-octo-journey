@@ -2,8 +2,9 @@ const express = require('express')
 const app = express()
 const port = 2021
 const router = require('./router')
+const bodyParser = require("body-parser");
 
-app.use(express.json())
+app.use(bodyParser.json())
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
