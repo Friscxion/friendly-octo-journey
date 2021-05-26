@@ -49,8 +49,8 @@ router.get('/params', (req, res) => {
     fs.readFile('params.json').then(resp=>res.send(JSON.parse(resp.toString())))
 })
 
-router.post('/paramse', (req, res) => {
-    console.log('post')
+router.post('/params', (req, res) => {
+    console.log(req.body)
     fs.writeFile('params.json',req.body).then(resp=> {
         console.log(resp);
     })
