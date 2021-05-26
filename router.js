@@ -2,6 +2,8 @@ const express = require("express");
 const fs = require('fs').promises;
 const router = express.Router();
 
+const Manager = require('./cronManager').manager;
+
 let _LOCK_ = false;
 let status = "open";
 
@@ -50,9 +52,8 @@ router.get('/params', (req, res) => {
 })
 
 router.post('/params', (req, res) => {
-    fs.writeFile('params.json',JSON.stringify(req.body)).then(resp=> {
-        console.log(resp);
-    })
+    fs.writeFile('params.json',JSON.stringify(req.body)).then();
+    Manager.refresh();
     res.sendStatus(200);
 })
 

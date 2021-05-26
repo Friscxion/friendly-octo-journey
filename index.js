@@ -4,6 +4,9 @@ const port = 2021
 const router = require('./router')
 const bodyParser = require("body-parser");
 
+const Manager = require('./cronManager').manager;
+Manager.init();
+
 app.use(bodyParser.json())
 
 app.use(function(req, res, next) {

@@ -7,5 +7,8 @@ module.exports = {
         sunset.setTime(sunset.getTime() - sunset.getTimezoneOffset()*60*1000);
         sunrise.setTime(sunrise.getTime() - sunrise.getTimezoneOffset()*60*1000);
         return {sunset,sunrise};
+    },
+    dateToTab : (date)=>{
+        return [date.getUTCSeconds(),date.getUTCMinutes(),date.getUTCHours()];
     }
 }
