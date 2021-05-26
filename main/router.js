@@ -39,9 +39,11 @@ router.get('/status', (req, res) => {
     res.send(status)
 })
 
-router.get('/test', (req, res) => {
+router.get('/sunrise_sunset', (req, res) => {
     const today = require("./today").get();
     res.send(today)
 })
+
+
 
 module.exports=router;
