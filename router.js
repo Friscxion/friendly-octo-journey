@@ -46,11 +46,11 @@ router.get('/sunrise_sunset', (req, res) => {
 })
 
 router.get('/params', (req, res) => {
-    fs.readFile('main/params.json').then(resp=>res.send(resp.toString()))
+    fs.readFile('params.json').then(resp=>res.send(resp.toString()))
 })
 
 router.post('/params', (req, res) => {
-    fs.writeFile('main/params.json',req.body).then(res=>console.log(res))
+    fs.writeFile('params.json',req.body).then(res=>console.log(res))
 })
 
 
