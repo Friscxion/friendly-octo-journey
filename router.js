@@ -57,8 +57,8 @@ router.post('/params', (req, res) => {
     res.sendStatus(200);
 })
 router.get('/test', (req, res) => {
-    // console.log(Manager.sunsetJob);
-    console.log(Manager.sunriseJob);
+    console.log(Manager.sunsetJob);
+    // console.log(Manager.sunriseJob);
     res.sendStatus(200)
 })
 
