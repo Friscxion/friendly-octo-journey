@@ -42,7 +42,7 @@ class managerCron{
         this.sunsetJob.setTime(new CronTime(`${this.sunset[0]} ${this.sunset[1]} ${this.sunset[2]} * * *`,'Europe/Paris'));
         this.sunsetJob.start();
 
-        console.log(this.sunsetJob.source)
+        console.log(this.sunsetJob)
     }
 
     autoSet= async()=>{
@@ -50,14 +50,14 @@ class managerCron{
         const fs = require('fs').promises;
         let params=await fs.readFile('params.json')
         params = JSON.parse(params.toString());
-        console.log(params)
+
         const {sunset, sunrise}= Today.get();
 
-        console.log(sunset,sunrise)
+
         sunrise.setMinutes(sunrise.getMinutes() + parseInt(params.lever));
         sunset.setMinutes(sunset.getMinutes() + parseInt(params.coucher));
 
-        console.log(sunset,sunrise)
+
         this.sunrise=Today.dateToTab(sunrise);
         this.sunset=Today.dateToTab(sunset);
         console.log(this.sunset,this.sunrise)
