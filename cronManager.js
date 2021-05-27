@@ -6,8 +6,8 @@ class managerCron{
     constructor() {
 
     }
-    init(){
-        this.autoSet();
+    init =async()=>{
+        await this.autoSet();
         this.createJobs();
     }
     createJobs(){
