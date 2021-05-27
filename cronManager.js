@@ -48,8 +48,9 @@ class managerCron{
     autoSet= async()=>{
         const Today = require('./today');
         const fs = require('fs').promises;
-        const params=await fs.readFile('params.json')
-        console.log(params.toString())
+        let params=await fs.readFile('params.json')
+        params = JSON.parse(params.toString());
+        console.log(params)
         const {sunset, sunrise}= Today.get();
 
         sunrise.setUTCMinutes(sunrise.getUTCMinutes() + params.lever);
