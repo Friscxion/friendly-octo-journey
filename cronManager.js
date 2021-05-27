@@ -52,7 +52,7 @@ class managerCron{
         params = JSON.parse(params.toString());
         console.log(params)
         const {sunset, sunrise}= Today.get();
-        console.log(sunset,sunrise)
+        console.log(sunset.getMinutes(),sunrise.getMinutes())
         sunrise.setUTCMinutes(sunrise.getUTCMinutes() + params.lever);
         sunset.setUTCMinutes(sunset.getUTCMinutes() + params.coucher);
 
