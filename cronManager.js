@@ -49,7 +49,7 @@ class managerCron{
         const Today = require('./today');
         const fs = require('fs').promises;
         const params=await fs.readFile('params.json')
-        console.log(params)
+        console.log(params.toString())
         const {sunset, sunrise}= Today.get();
 
         sunrise.setUTCMinutes(sunrise.getUTCMinutes() + params.lever);
