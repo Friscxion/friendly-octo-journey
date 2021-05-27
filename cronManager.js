@@ -53,7 +53,7 @@ class managerCron{
 
         this.sunrise=Today.dateToTab(sunrise);
         this.sunset=Today.dateToTab(sunset);
-        console.log(this.sunset,this.sunrise)
+        console.log(this.sunset.slice().reverse(),this.sunrise.slice().reverse())
     }
 
 }
