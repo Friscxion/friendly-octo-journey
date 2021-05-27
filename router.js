@@ -52,8 +52,7 @@ router.get('/params', (req, res) => {
 })
 
 router.post('/params', (req, res) => {
-    fs.writeFile('params.json',JSON.stringify(req.body)).then();
-    Manager.refresh()
+    fs.writeFile('params.json',JSON.stringify(req.body)).then(()=>Manager.refresh());
     res.sendStatus(200);
 })
 
