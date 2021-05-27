@@ -1,5 +1,7 @@
 
 //let test= new CronTime('0 0 0 * * *','Europe/Paris');
+
+
 class managerCron{
     constructor() {
 
@@ -29,9 +31,9 @@ class managerCron{
 
     }
 
-    refresh(){
+    refresh = async()=>{
         const CronTime = require('cron').CronTime;
-        this.autoSet();
+        await this.autoSet();
 
         this.sunriseJob.stop();
         this.sunriseJob.setTime(new CronTime(`${this.sunrise[0]} ${this.sunrise[1]} ${this.sunrise[2]} * * *`,'Europe/Paris'));
@@ -43,9 +45,10 @@ class managerCron{
         console.log(this.sunsetJob.source)
     }
 
-    autoSet(){
+    autoSet= async()=>{
         const Today = require('./today');
-        const params = require('./params.json');
+        const fs = require('fs').promises;
+        const params=await fs.readFile('params.json')
         const {sunset, sunrise}= Today.get();
 
         sunrise.setUTCMinutes(sunrise.getUTCMinutes() + params.lever);
@@ -54,6 +57,7 @@ class managerCron{
         this.sunrise=Today.dateToTab(sunrise);
         this.sunset=Today.dateToTab(sunset);
         console.log(this.sunset.slice().reverse(),this.sunrise.slice().reverse())
+
     }
 
 }
