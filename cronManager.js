@@ -46,14 +46,14 @@ class managerCron{
     autoSet(){
         const Today = require('./today');
         const params = require('./params.json');
-        const {sunrise, sunset}= Today.get();
+        const {sunset, sunrise}= Today.get();
 
         sunrise.setUTCMinutes(sunrise.getUTCMinutes() + params.lever);
         sunset.setUTCMinutes(sunset.getUTCMinutes() + params.coucher);
 
         this.sunrise=Today.dateToTab(sunrise);
         this.sunset=Today.dateToTab(sunset);
-        console.log(this.sunrise,this.sunset)
+        console.log(this.sunset,this.sunrise)
     }
 
 }
