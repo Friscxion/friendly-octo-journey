@@ -52,11 +52,12 @@ class managerCron{
         params = JSON.parse(params.toString());
         console.log(params)
         const {sunset, sunrise}= Today.get();
-        console.log(sunset.getMinutes(),sunrise.getMinutes())
+
+        console.log(sunset,sunrise)
         sunrise.setMinutes(sunrise.getMinutes() + params.lever);
         sunset.setMinutes(sunset.getMinutes() + params.coucher);
 
-        console.log(this.sunset,this.sunrise)
+        console.log(sunset,sunrise)
         this.sunrise=Today.dateToTab(sunrise);
         this.sunset=Today.dateToTab(sunset);
         console.log(this.sunset,this.sunrise)
