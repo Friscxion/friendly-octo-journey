@@ -36,7 +36,6 @@ class managerCron{
         this.sunriseJob.stop();
         this.sunriseJob.setTime(new CronTime(`${this.sunrise[0]} ${this.sunrise[1]} ${this.sunrise[2]} * * *`,'Europe/Paris'));
         this.sunriseJob.start();
-
         this.sunsetJob.stop();
         this.sunsetJob.setTime(new CronTime(`${this.sunset[0]} ${this.sunset[1]} ${this.sunset[2]} * * *`,'Europe/Paris'));
         this.sunsetJob.start();
@@ -50,6 +49,8 @@ class managerCron{
         sunrise.setUTCMinutes(sunrise.getUTCMinutes() + params.lever);
         sunset.setUTCMinutes(sunset.getUTCMinutes() + params.coucher);
 
+
+        console.log(sunrise,sunset)
         this.sunrise=Today.dateToTab(sunrise);
         this.sunset=Today.dateToTab(sunset);
     }
