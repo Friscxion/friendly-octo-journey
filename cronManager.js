@@ -56,6 +56,7 @@ class managerCron{
         sunrise.setMinutes(sunrise.getMinutes() + params.lever);
         sunset.setMinutes(sunset.getMinutes() + params.coucher);
 
+        console.log(this.sunset,this.sunrise)
         this.sunrise=Today.dateToTab(sunrise);
         this.sunset=Today.dateToTab(sunset);
         console.log(this.sunset,this.sunrise)
