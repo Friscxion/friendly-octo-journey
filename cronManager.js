@@ -2,6 +2,8 @@
 //let test= new CronTime('0 0 0 * * *','Europe/Paris');
 
 
+const axios = require("axios");
+
 class managerCron{
     constructor() {
 
@@ -20,12 +22,16 @@ class managerCron{
         this.main.start();
 
         this.sunsetJob = new CronJob(`${this.sunset[0]} ${this.sunset[1]} ${this.sunset[2]} * * *`, function() {
-            console.log('Daily sunset');
+            axios.get('http://localhost:2021/close').then(()=>{
+                console.log('Daily sunset Closed!');
+            })
         }, null, true, 'Europe/Paris');
         this.sunsetJob.start();
 
         this.sunriseJob = new CronJob(`${this.sunrise[0]} ${this.sunrise[1]} ${this.sunrise[2]} * * *`, function() {
-            console.log('Daily sunrise');
+            axios.get('http://localhost:2021/open').then(()=>{
+                console.log('Daily sunrise Opened!');
+            })
         }, null, true, 'Europe/Paris');
         this.sunriseJob.start();
 
